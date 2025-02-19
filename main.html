@@ -1,0 +1,150 @@
+<html>
+ <head>
+  <title>
+   Nimbus Advertisement
+  </title>
+  <style>
+   body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: black;
+            background-color: white;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .text {
+            font-size: 24px;
+            line-height: 1.5;
+        }
+        .text .highlight {
+            color: #00AEEF;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+        }
+
+        .social-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-button {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .carousel {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 800px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .main-text {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+
+
+
+        .contact {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 20px;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <div class="carousel">
+       <img src="main.png" alt="Main" style="opacity: 1;">
+       <img src="Nature.png" alt="Nature" style="opacity: 0;">
+   </div>
+
+   <div class="main-text">
+       Nimbus, Ваш комфорт выше пробок
+   </div>
+
+   <img alt="Company logo" class="logo" height="50" src="logo.png" width="50"/>
+   <div class="social-buttons">
+       <img class="social-button" src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" alt="VK" onclick="window.location.href='#'">
+       <img class="social-button" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" onclick="window.location.href='#'">
+   </div>
+
+
+  
+   <div class="contact">
+    <img src="https://cdn-icons-png.flaticon.com/512/126/126341.png" alt="Phone icon" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+    23-33-33
+   </div>
+
+  </div>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel img');
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? 1 : 0;
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 5000);
+  </script>
+ </body>
+
+</html>
